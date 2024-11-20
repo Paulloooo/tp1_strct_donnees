@@ -1,11 +1,25 @@
+#include "article.h"
+
 #ifndef STOCKLISTE_H
 #define STOCKLISTE_H
 
-void initStock(StockListe* stock);
-void libererMemoire(StockListe* stock);
+typedef struct NoeudArticle
+{
+    struct NoeudArticle* next;
+    Article article;
+} NoeudArticle;
 
-void ajouterArticle(StockListe* stock, Article article);
+typedef struct StockListe
+{
+    NoeudArticle* first;
+} StockListe;
 
-int chargerFichier(const char* fichier, StockListe* stock);
+void initStockL(StockListe* stock);
+void libererMemoireStockL(StockListe* stock);
 
+void ajouterArticleStockL(StockListe* stock, Article article);
+
+int chargerFichierStockL(const char* fichier, StockListe* stock);
+
+void afficherStockL(StockListe* stock);
 #endif

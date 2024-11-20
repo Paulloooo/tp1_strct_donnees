@@ -3,6 +3,7 @@
 #include <string.h>
 #include "utils.h"
 #include "stockTableau.h"
+#include "stockListe.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -23,12 +24,12 @@ int main() {
     return 0; */
 
     //partie des stockTableau
-    StockTableau stock;
+/*     StockTableau stock;
     int tailleMax = 10;
 
     initStock(&stock, tailleMax);
     chargerFichier("100000articles.csv", &stock);
-    espacePerdu(&stock);
+    espacePerdu(&stock); */
 /*     clock_t begin = clock();
     clock_t end = clock();
     unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
@@ -44,7 +45,11 @@ int main() {
     //int quantite = quantiteEnStock("Premium Huile d\'olive", &stock);
     //printf("Quantit\202 en stock de l'article Premium Huile d\'olive : %d", quantite);
 
-    libererMemoire(&stock);
+    StockListe stock;
+    initStockL(&stock);
+    chargerFichierStockL("10articles.csv", &stock);
+    afficherStockL(&stock);
+    libererMemoireStockL(&stock);
     
     return 0;
 }
